@@ -1,6 +1,6 @@
 package org.example;
 
-public static class Plaything {
+public class Plaything {
     protected Integer id_plaything;
     protected String name;
     protected Integer count;
@@ -13,6 +13,10 @@ public static class Plaything {
         this.weight = weight;
     }
 
+//    public static void addPlaything() {
+//        allPlaything.add(Plaything);
+//    }
+
     @Override
     public String toString() {
         return "org.example.Main.Plays{" +
@@ -23,7 +27,7 @@ public static class Plaything {
                 '}';
     }
 
-    public Integer getId_plays() {
+    public Integer getId() {
         return id_plaything;
     }
 
