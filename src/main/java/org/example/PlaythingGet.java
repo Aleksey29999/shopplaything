@@ -40,7 +40,7 @@ public class PlaythingGet {
 
     public void addPlaything(Plaything plaything) {
         allPlaythings.add(plaything);
-//        System.out.println(allPlaythings);
+
     }
 
     public int lotereya() {
@@ -48,14 +48,15 @@ public class PlaythingGet {
         prizePlaything.clear();
         for (Plaything allPlaything : allPlaythings) {
             double random = Math.random();
-            win.add(random * allPlaything.getWeight());
+            win.add(random * allPlaything.getWeight()*allPlaything.getCount()); // на getCount умножаем чтобы исключить из расчета игрушки,
+            // которые закончились
         }
 
         Double max_chance = Collections.max(win);
         System.out.println(win);
         System.out.println(max_chance);
         for (Plaything allPlaything : allPlaythings) {
-            if (allPlaything.getId() == win.indexOf(max_chance) - 1) {
+            if (allPlaything.getId() == win.indexOf(max_chance)) {
                 System.out.printf("Выпала игрушка: %s\n", allPlaything.getName());
                 return allPlaything.getId();
             }

@@ -11,10 +11,10 @@ public class Main {
     public static void main(String[] args) {
 
         PlaythingGet Play = new PlaythingGet();
-        Plaything plaything1 = new Plaything(1, "плюшевый медведь", 20, 30);
-        Plaything plaything2 = new Plaything(2, "машинка", 10, 20);
-        Plaything plaything3 = new Plaything(3, "кораблик", 5, 35);
-        Plaything plaything4 = new Plaything(4, "самолет", 3, 15);
+        Plaything plaything1 = new Plaything(0, "плюшевый медведь", 2, 30);
+        Plaything plaything2 = new Plaything(1, "машинка", 1, 20);
+        Plaything plaything3 = new Plaything(2, "кораблик", 4, 35);
+        Plaything plaything4 = new Plaything(3, "самолет", 3, 15);
 
         System.out.println(plaything1);
         System.out.println(plaything2);
