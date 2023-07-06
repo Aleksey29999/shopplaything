@@ -25,13 +25,18 @@ public class Main {
         Play.addPlaything(plaything2);
         Play.addPlaything(plaything3);
         Play.addPlaything(plaything4);
-        Play.printPlay();
 
         String continue_flag = "1";
         while (continue_flag.equals("1")) {
             int toy_id = Play.lotereya();
             Play.getPrize(toy_id);
-            Play.printPlay();
+
+            System.out.println(plaything1);
+            System.out.println(plaything2);
+            System.out.println(plaything3);
+            System.out.println(plaything4);
+
+
             System.out.println("Устроим лотерею ещё раз? 1 - да, любой другой символ - нет");
             Scanner in = new Scanner(System.in);
             continue_flag = in.next();

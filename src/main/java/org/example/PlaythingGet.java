@@ -69,18 +69,8 @@ public class PlaythingGet {
             System.out.println("Игрушки кончились");
         } else {
             allPlaythings.get(id_plaything).setCount(allPlaythings.get(id_plaything).getCount() - 1);
-            try {
-                FileWriter writer = new FileWriter(prizeFile, true);
-                writer.write(allPlaythings.get(id_plaything).getName() + "\n");
-                writer.close();
-            } catch (IOException e) {
-                System.out.println("Ошибка при записи в файл игрушки");
-            }
+
         }
     }
-    public void printPlay() {
-        System.out.println("Информация по игрушкам: ");
-        for (Plaything allPlaything : allPlaythings)
-            System.out.println(allPlaything.toString());
-    }
+
 }
