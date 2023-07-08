@@ -42,14 +42,12 @@ public class PlaythingGet {
         allPlaythings.add(plaything);
 
     }
-
-    public int lotereya() {
+    public int lotereya() throws IOException {
         ArrayList<Double> win = new ArrayList<Double>(allPlaythings.size());
         prizePlaything.clear();
         for (Plaything allPlaything : allPlaythings) {
             double random = Math.random();
-            win.add(random * allPlaything.getWeight()*allPlaything.getCount()); // на getCount умножаем чтобы исключить из расчета игрушки,
-            // которые закончились
+            win.add(random * allPlaything.getWeight()*allPlaything.getCount());
         }
 
         Double max_chance = Collections.max(win);
@@ -58,6 +56,11 @@ public class PlaythingGet {
         for (Plaything allPlaything : allPlaythings) {
             if (allPlaything.getId() == win.indexOf(max_chance)) {
                 System.out.printf("Выпала игрушка: %s\n", allPlaything.getName());
+                FileWriter writer = new FileWriter(prizeFile, true);
+                writer.write(allPlaything.getName() + "\n");
+                writer.close();
+
+
                 return allPlaything.getId();
             }
         }
@@ -66,8 +69,10 @@ public class PlaythingGet {
 
     public void getPrize(int id_plaything) {
         if (allPlaythings.get(id_plaything).getCount() == 0) {
-            System.out.println("Игрушки кончились");
-        } else {
+          System.out.println("Игрушки кончились");
+          return;
+        }
+        else {
             allPlaythings.get(id_plaything).setCount(allPlaythings.get(id_plaything).getCount() - 1);
 
         }

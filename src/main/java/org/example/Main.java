@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.Scanner;
 //import static org.example.PlaythingGet.addPlaything;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         PlaythingGet Play = new PlaythingGet();
         Plaything plaything1 = new Plaything(0, "плюшевый медведь", 2, 30);
@@ -36,10 +37,13 @@ public class Main {
             System.out.println(plaything3);
             System.out.println(plaything4);
 
-
-            System.out.println("Устроим лотерею ещё раз? 1 - да, любой другой символ - нет");
-            Scanner in = new Scanner(System.in);
-            continue_flag = in.next();
+            if (plaything1.getCount() == 0 && plaything2.getCount() == 0 && plaything3.getCount() == 0 && plaything4.getCount() == 0) {
+                break;
+            } else {
+                System.out.println("Устроим лотерею ещё раз? 1 - да, любой другой символ - нет");
+                Scanner in = new Scanner(System.in);
+                continue_flag = in.next();
+            }
         }
 }
 }
